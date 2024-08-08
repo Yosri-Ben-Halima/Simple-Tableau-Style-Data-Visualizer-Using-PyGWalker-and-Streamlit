@@ -14,7 +14,7 @@ Welcome to the **Simple Tableau Style Data Visualizer** repository! This project
 ## Getting Started:
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/simple-tableau-style-visualizer.git
+   git clone [https://github.com/yourusername/simple-tableau-style-visualizer.git](https://github.com/Yosri-Ben-Halima/Simple-Tableau-Style-Data-Visualizer-Using-PyGWalker-and-Streamlit)
    ```
 2. **Install Dependencies:**
    ```bash
