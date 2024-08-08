@@ -16,7 +16,7 @@ uploaded_file = st.file_uploader("Upload your CSV file", type="csv")
 
 if uploaded_file is not None:
     # Load the data into a DataFrame
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_csv(uploaded_file, encoding='utf-8')
 
     # Generate the HTML of the PyGWalker object
     pyg_html = pyg.walk(df, return_html=True)
