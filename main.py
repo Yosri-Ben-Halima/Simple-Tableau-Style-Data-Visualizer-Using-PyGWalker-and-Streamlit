@@ -21,16 +21,11 @@ if uploaded_file is not None:
     
     for encoding in encoding_options:
         try:
-            df = pd.read_csv(uploaded_file, encoding=encoding)
+            df = pd.read_csv("kaggle_income.csv", encoding=encoding)
             st.success(f"File successfully loaded with encoding: {encoding}")
             break
         except UnicodeDecodeError:
             st.warning(f"Failed to decode with encoding: {encoding}. Trying next encoding...")
-            
-    df = pd.DataFrame({
-        'Name': ['Alice', 'Bob', 'Charlie'],
-        'Age': [25, 30, 35]
-    })
     
     if df is not None:
         try:
