@@ -28,11 +28,21 @@ if uploaded_file is not None:
             st.warning(f"Failed to decode with encoding: {encoding}. Trying next encoding...")
     
     if df is not None:
-        # Generate the HTML of the PyGWalker object
-        pyg_html = pyg.walk(df, return_html=True)
+        try:
+            # Generate the HTML of the PyGWalker object
+            pyg_html = pyg.walk(df, return_html=True)
+            
+            # Print or log the HTML to verify
+            st.text_area("Generated HTML", pyg_html, height=300)
 
-        # Embed the HTML into the Streamlit app
-        components.html(pyg_html, height=1000, scrolling=True)
+            # Ensure pyg_html is a string
+            if isinstance(pyg_html, str):
+                # Embed the HTML into the Streamlit app
+                components.html(pyg_html, height=1000, scrolling=True)
+            else:
+                st.error("The generated HTML is not a valid string. Please check the PyGWalker output.")
+        except Exception as e:
+            st.error(f"An error occurred while generating or displaying the PyGWalker visualization: {e}")
     else:
         st.error("Unable to decode the file with the provided encodings. Please upload a valid CSV file.")
 else:
