@@ -4,7 +4,7 @@ import streamlit.components.v1 as components
 import streamlit as st
 
 # Load the data
-df = pd.read_csv("kaggle_income.csv", encoding='latin1')
+df = pd.read_csv("path/to/your_csv_file.csv", encoding='latin1')
 
 # Adjust the width and title of the Streamlit page
 st.set_page_config(
