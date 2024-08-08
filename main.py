@@ -16,7 +16,7 @@ uploaded_file = st.file_uploader("Upload your CSV file", type="csv")
 
 if uploaded_file is not None:
     # Attempt to load the data into a DataFrame with various encodings
-    encoding_options = ['utf-8', 'ISO-8859-1', 'cp1252']
+    encoding_options = ['utf-8', 'ISO-8859-1', 'cp1252', 'latin1']
     df = None
     
     for encoding in encoding_options:
