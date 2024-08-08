@@ -16,7 +16,7 @@ uploaded_file = st.file_uploader("Upload your CSV file", type="csv")
 
 if uploaded_file is not None:
     # Attempt to load the data into a DataFrame with various encodings
-    encoding_options = ['latin1', 'utf-8', 'ISO-8859-1', 'cp1252']
+    encoding_options = ['utf-8', 'latin1', 'ISO-8859-1', 'cp1252']
     df = None
     
     for encoding in encoding_options:
@@ -26,10 +26,12 @@ if uploaded_file is not None:
             break
         except UnicodeDecodeError:
             st.warning(f"Failed to decode with encoding: {encoding}. Trying next encoding...")
+            
     df = pd.DataFrame({
         'Name': ['Alice', 'Bob', 'Charlie'],
         'Age': [25, 30, 35]
     })
+    
     if df is not None:
         try:
             # Generate the HTML of the PyGWalker object
