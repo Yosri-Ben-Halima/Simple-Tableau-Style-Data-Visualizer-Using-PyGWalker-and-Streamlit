@@ -32,9 +32,6 @@ if uploaded_file is not None:
             # Generate the HTML of the PyGWalker object
             pyg_html = pyg.walk(df, return_html=True)
             
-            # Print or log the HTML to verify
-            st.text_area("Generated HTML", pyg_html, height=300)
-
             # Ensure pyg_html is a string
             if isinstance(pyg_html, str):
                 # Embed the HTML into the Streamlit app
