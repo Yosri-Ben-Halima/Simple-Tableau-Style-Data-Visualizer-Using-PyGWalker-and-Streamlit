@@ -15,8 +15,15 @@ st.title("Pygwalker Data Visualization App Using Streamlit")
 uploaded_file = st.file_uploader("Upload your CSV file", type="csv")
 
 if uploaded_file is not None:
-    # Load the data into a DataFrame
-    df = pd.read_csv(uploaded_file, encoding='utf-8')
+    try:
+        # Load the data into a DataFrame with different encodings
+        df = pd.read_csv(uploaded_file, encoding='utf-8')
+    except UnicodeDecodeError:
+        # Handle encoding errors by trying alternative encodings
+        try:
+            df = pd.read_csv(uploaded_file, encoding='ISO-8859-1')
+        except UnicodeDecodeError:
+            df = pd.read_csv(uploaded_file, encoding='cp1252')
 
     # Generate the HTML of the PyGWalker object
     pyg_html = pyg.walk(df, return_html=True)
