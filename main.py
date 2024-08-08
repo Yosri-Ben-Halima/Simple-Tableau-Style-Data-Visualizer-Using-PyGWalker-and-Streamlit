@@ -26,7 +26,10 @@ if uploaded_file is not None:
             break
         except UnicodeDecodeError:
             st.warning(f"Failed to decode with encoding: {encoding}. Trying next encoding...")
-    
+    df = pd.DataFrame({
+        'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]
+    })
     if df is not None:
         try:
             # Generate the HTML of the PyGWalker object
